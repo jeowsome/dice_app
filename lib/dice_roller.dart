@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:dice_app/styled_text.dart';
+import 'dart:math';
+
+// created once
+// global final variable
+final randomizer = Random();
 
 // when dealing with StatefulWidgets you will work with 2 classes
 // Manage in a special way by flutter
@@ -18,13 +23,13 @@ class DiceRoller extends StatefulWidget {
 // state class - can change
 // used internally
 class _DiceRollerState extends State<DiceRoller> {
-  var activeDiceImage = 'assets/images/dice-1.png';
+  var currentDiceRoll = 2;
 
   void rollDice() {
     // available only inside State classes
     // reexecutes build function of State class
     setState(() {
-      activeDiceImage = 'assets/images/dice-4.png';
+      currentDiceRoll = randomizer.nextInt(6) + 1;
     });
   }
 
@@ -34,7 +39,7 @@ class _DiceRollerState extends State<DiceRoller> {
       mainAxisSize: MainAxisSize.min,
       children: [
         Image.asset(
-          activeDiceImage,
+          'assets/images/dice-$currentDiceRoll.png',
           width: 200,
         ),
         const SizedBox(
