@@ -5,11 +5,17 @@ const Alignment startAlignment = Alignment.topLeft;
 const Alignment endAlignment = Alignment.bottomRight;
 
 class GradientContainer extends StatelessWidget {
+  // constructor function
+  // used when creating a class
+  // function argument order
+  // positional first - unnamed
+  // named arguments {}
   const GradientContainer({
     super.key,
     required this.colorList,
   });
 
+  // second constructor
   const GradientContainer.setToBW({super.key})
       : colorList = const [Colors.black, Colors.white];
 
